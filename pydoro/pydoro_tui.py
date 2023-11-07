@@ -2,8 +2,8 @@
 
 __version__ = "0.2.3"
 
-from email import message
-from lib2to3.pytree import LeafPattern
+# from email import message
+# from lib2to3.pytree import LeafPattern
 
 # from msilib.schema import EventMapping
 import sys
