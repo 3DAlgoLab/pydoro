@@ -4,11 +4,13 @@ __version__ = "0.2.3"
 
 from email import message
 from lib2to3.pytree import LeafPattern
-from msilib.schema import EventMapping
+
+# from msilib.schema import EventMapping
 import sys
 import threading
 import subprocess
-from turtle import isvisible
+
+# from turtle import isvisible
 
 from prompt_toolkit.application import Application
 from prompt_toolkit.application.current import get_app
@@ -49,7 +51,9 @@ class UserInterface:
         btn_reset_all = Button("Reset All", handler=self.tomato.reset_all)
         btn_exit = Button("Exit", handler=self._exit_clicked)
         # All the widgets for the UI.
-        self.text_area = FormattedTextControl(focusable=False, show_cursor=False)
+        self.text_area = FormattedTextControl(
+            focusable=False, show_cursor=False
+        )
         text_window = Window(
             content=self.text_area,
             dont_extend_height=True,
@@ -143,7 +147,9 @@ class UserInterface:
 
     def run(self):
         self._draw()
-        threading.Thread(target=lambda: every(0.4, self._draw), daemon=True).start()
+        threading.Thread(
+            target=lambda: every(0.4, self._draw), daemon=True
+        ).start()
         self.application.run()
 
 
@@ -160,9 +166,13 @@ class HelpContainer(ConditionalContainer):
                     Label(text=f"reset         | {keybindings['reset']}"),
                     Label(text=f"reset all     | {keybindings['reset_all']}"),
                     Label(text=f"help          | {keybindings['help']}"),
-                    Label(text=f"focus prev    | {keybindings['focus_previous']}"),
+                    Label(
+                        text=f"focus prev    | {keybindings['focus_previous']}"
+                    ),
                     Label(text=f"focus next    | {keybindings['focus_next']}"),
-                    Label(text=f"exit          | {keybindings['exit_clicked']}"),
+                    Label(
+                        text=f"exit          | {keybindings['exit_clicked']}"
+                    ),
                 ]
             )
         )
